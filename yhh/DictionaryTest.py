@@ -39,6 +39,10 @@ print("dict3('Name'): ", dict3['Name'])
     str(dict)   输出字典，以可打印的字符串表示。
     type(variable)  返回输入的变量类型，如果变量是字典就返回字典类型。
 '''
+dict4 = {'Name': 'Runoob', 'Age': 7, 'Class': 'First'}
+print(len(dict4))
+print(type(str(dict4)))
+print(type(dict4['Age']))
 """
     radiansdict.clear()     删除字典内所有元素
     radiansdict.copy()      返回一个字典的浅复制
@@ -53,3 +57,9 @@ print("dict3('Name'): ", dict3['Name'])
     pop(key[,default])      删除字典给定键 key 所对应的值，返回值为被删除的值。key值必须给出。 否则，返回default值。
 	popitem()       随机返回并删除字典中的最后一对键和值。 
 """
+print(dict4.copy())
+print(dict4.get('Age'))
+print('Age' in  dict4)
+print(dict4.items())
+print(dict4.keys())
+print(dict4.values())
