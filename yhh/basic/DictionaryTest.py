@@ -59,7 +59,7 @@ print(type(dict4['Age']))
 """
 print(dict4.copy())
 print(dict4.get('Age'))
-print('Age' in  dict4)
+print('Age' in dict4)
 print(dict4.items())
 print(dict4.keys())
 print(dict4.values())
