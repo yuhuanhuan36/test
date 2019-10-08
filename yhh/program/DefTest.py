@@ -109,14 +109,85 @@ printKeywords (keywords = "test")
 
 # 以下实例函数参数的使用不需要使用指定顺序：
 
+def printInfo(name, age):
+    print("名字:", name)
+    print("年龄:", age)
+    return
 
-
-
-
-
-
-
+printInfo('yuhuanhuan', 30)
+printInfo(age=29, name='Rita')
 
 # 默认参数：
-# 不定长参数：
+# 调用函数时，如果没有传递参数，则会使用默认参数。以下实例中如果没有传入 age 参数，则使用默认值：
+def printDefault(name, age=35):
+     "打印任何输入参数"
+     print('名字:', name)
+     print('年龄:', age)
+     return
+printDefault(age=50, name="Happy")
+print("------------------")
+printDefault(name="sad")
 
+# 不定长参数：
+# 你可能需要一个函数能处理比当初声明时更多的参数。这些参数叫做不定长参数，
+# 和上述 2 种参数不同，声明时不会命名。基本语法如下：
+'''
+def functionname([formal_args,] * var_args_tuple):
+    "函数文档字符串"
+    function_suite
+    return [expression]
+加了星号 * 的参数会以元组(tuple)的形式导入，存放所有未命名的变量参数。
+'''
+def printTuple(args, *vartuple):
+    "打印任何输入的参数"
+    print("输出：")
+    print(args)
+    print(vartuple)
+
+printTuple(70, 50, 60)
+# 如果在函数调用时没有指定参数，它就是一个空元组。我们也可以不向函数传递未命名的变量。如下实例：
+def printEmptyTuple(args1, *vartuple):
+    "打印任何输入的参数"
+    print(args1)
+    for var in vartuple:
+        print(var)
+    return
+printEmptyTuple(10)
+
+printEmptyTuple(70,50,60)
+
+# 还有一种就是参数带两个星号 ,加了两个星号 ** 的参数会以字典的形式导入。
+def printDict(args, **varDict):
+    "打印任何输出的参数"
+    print("输出:")
+    print(args)
+    print(varDict)
+printDict(1, a=2, b=3)
+# 匿名函数：
+'''
+python 使用lambda来创建匿名函数
+匿名函数特点如下：
+lambda只是一个表达式，函数体比def简单很多
+lambda的主体是一个表达式，而不是一个代码块，仅仅能在lambda中封装有限的逻辑进去
+lambda函数拥有自己的命名空间，且不能访问自己参数之外或全局命名空间里的参数
+虽然lambda函数只能写一行，却不等同于c和C++里的内联函数，后者的目的是调用小函数时不占用栈内存而增加运行效率
+'''
+
+sum = lambda arg1, arg2:arg1 + arg2
+print(sum(20,30))
+# return 语句
+'''
+return 语句用于退出函数，选择性的调用方法返回一个表达式。不带参数值的return语句返回为none，
+'''
+
+def sum(a, b):
+    total = a + b
+    print('函数内:', total)
+    return total
+total = sum(2, 9)
+print('函数外:', total)
+
+x = True
+def printLine(text):
+    print(text, ' Runoob')
+printLine('Python')
