@@ -13,6 +13,7 @@ import sys  # 引入sys模块
 
 list = [1, 2, 3, 4, 5]
 it = iter(list) # 创建迭代器对象
+
 #print(next(it))
 "--------"
 #print(next(it))
@@ -21,12 +22,13 @@ it = iter(list) # 创建迭代器对象
 #    print(x, end=" ")
 
 # 也可以使用next函数
-while True:
+'''while True:
     try:
         print(next(it))
     except StopIteration:
         sys.exit()
 
+'''
 '''
 创建一个迭代器
 把一个类作为一个迭代器使用，需要在类中实现两个方法_iter()_和_next()_
@@ -36,3 +38,23 @@ _next()_（Python2里是next()）方法会返回下一个迭代器对象
 '''
 
 # 创建一个返回数字的迭代，初始值为1，逐渐递增1
+
+
+
+class MyNumbers:
+    def __iter__(self):
+        self.a = 1
+        return self
+    def __next__(self):
+        if(self.a < 20):
+            x = self.a
+            self.a += 1
+            return x
+        else:
+            raise StopIteration
+myclass = MyNumbers()
+print(myclass)
+myiter = iter(myclass)
+for x in myiter:
+        print(x)
+
