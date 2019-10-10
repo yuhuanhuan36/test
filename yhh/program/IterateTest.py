@@ -56,5 +56,30 @@ myclass = MyNumbers()
 print(myclass)
 myiter = iter(myclass)
 for x in myiter:
-        print(x)
+    print(x)
+
+'''
+在python中，使用了yield的函数被成为生成器
+跟普通函数不同的是，生成器是一个返回迭代期的函数，只能用于迭代，简单来说，生成器就是一个迭代器
+在调用生成器运行的过程中，每次遇到yield时函数会暂停运行保存当前所有的运行信息，返回yield的值，
+并在下一次执行next()方法时从当前位置继续执行
+调用一个生成器函数，返回的是一个函数对象
+
+'''
+
+def fibonacci(n):# 生成器函数 斐波那契
+    a, b, count = 0, 1, 0
+    while True:
+        if(count >n):
+            return
+        yield a
+        a, b =b, a+b
+        count += 1
+f = fibonacci(10)   # f 是一个迭代器，由生成器返回生成
+while True:
+    try:
+        print(next(f), end=" ")
+    except StopIteration:
+        sys.exit()
+
 
